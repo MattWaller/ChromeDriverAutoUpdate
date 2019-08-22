@@ -86,7 +86,8 @@ if (exists == False):
 		# defining old chrome driver location
 		oldPath = driver_loc + lastVersion
 		oldpathexists = os.path.exists(oldPath)
-
+		
+		# this deletes the old folder with the older version of chromedriver in it (version 75, once 77 has been downloaded)
 		if(oldpathexists == True):
 			shutil.rmtree(oldPath, ignore_errors=True)
 
