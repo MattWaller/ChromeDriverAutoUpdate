@@ -4,10 +4,12 @@ from ChromeVersion import chrome_browser_version, nextVersion, lastVersion
 driverName = "\\chromedriver.exe"
 
 # defining base file directory of chrome drivers
-driver_loc = "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python37-32\\ChromeDriver\\"
+driver_loc = #"C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python37-32\\ChromeDriver\\" -- ENTER the file path of your exe
+# -- I created a separate folder to house the versions of chromedriver, previous versions will be deleted after downloading the newest version.
+# ie. version 75 will be deleted after 77 has been downloaded.
 
+# defining the file path of your exe file automatically updating based on your browsers current version of chrome.
 currentPath = driver_loc + chrome_browser_version + driverName 
-
 # check file directories to see if chrome drivers exist in nextVersion
 
 
@@ -16,10 +18,9 @@ import os.path
 # check if new version of drive exists --> only continue if it doesn't
 Newpath = driver_loc + nextVersion
 
+# check if we have already downloaded the newest version of the browser, ie if we have version 76, and have already downloaded a version of 77, we don't need to run any more of the script.
 newfileloc = Newpath + driverName
 exists = os.path.exists(newfileloc)
-
-
 
 
 if (exists == False):
@@ -34,7 +35,7 @@ if (exists == False):
 	executable_path = currentPath
 	driver = webdriver.Chrome(executable_path=executable_path, options=chrome_options)
 
-
+	# opening up url of chromedriver to get new version of chromedriver.
 	chromeDriverURL = 'https://chromedriver.storage.googleapis.com/index.html?path=' + nextVersion 
 
 	driver.get(chromeDriverURL)
@@ -66,7 +67,7 @@ if (exists == False):
 		import shutil
 
 
-		fileName = r"C:\Users\Administrator\Downloads\chromedriver_win32.zip"
+		fileName = #r"C:\Users\Administrator\Downloads\chromedriver_win32.zip" --> enter your download path here.
 
 
 		
