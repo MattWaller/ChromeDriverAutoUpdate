@@ -4,7 +4,7 @@ Automatically update and deploy chromedriver updates
 
 Place files in os path that can run python for deployment of automated download of chromedriver.
 
-Set up scheduler to run daily every hour stagged slightly behind google update task machine. 
+Set up scheduler to run daily every hour slightly behind google update task machine. 
 
 Must have a current version of chromedriver in order to set script up.
 
