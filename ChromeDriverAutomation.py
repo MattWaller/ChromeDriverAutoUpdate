@@ -1,10 +1,18 @@
-from ChromeVersion import chrome_browser_version, nextVersion, lastVersion
+from ChromeVersion import chromeVersion
+
+
+chromeDetails = chromeVersion()
+
+# obtaining variables from chromeVersion
+chrome_browser_version = chromeDetails[0]
+nextVersion = chromeDetails[1]
+lastVersion = chromeDetails[2]
 
 
 driverName = "\\chromedriver.exe"
 
 # defining base file directory of chrome drivers
-driver_loc = #"C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python37-32\\ChromeDriver\\" -- ENTER the file path of your exe
+driver_loc = "ChromeDriver\\" #-- ENTER the file path of your exe
 # -- I created a separate folder to house the versions of chromedriver, previous versions will be deleted after downloading the newest version.
 # ie. version 75 will be deleted after 77 has been downloaded.
 
@@ -33,6 +41,7 @@ if (exists == False):
 	import time
 	chrome_options = Options()
 	executable_path = currentPath
+	print(executable_path)
 	driver = webdriver.Chrome(executable_path=executable_path, options=chrome_options)
 
 	# opening up url of chromedriver to get new version of chromedriver.
@@ -66,30 +75,36 @@ if (exists == False):
 		from zipfile import ZipFile
 		import shutil
 
-
-		fileName = #r"C:\Users\Administrator\Downloads\chromedriver_win32.zip" --> enter your download path here.
+		# gets default download folder
+		from userDownloadPath import get_download_folder
+		dlFolder = get_download_folder()
+		fileName = dlFolder + "\\chromedriver_win32.zip" #--> enter your download path here.
 
 
 		
-
+		try:
 		# Create a ZipFile Object and load sample.zip in it
-		with ZipFile(fileName, 'r') as zipObj:
-		   # Extract all the contents of zip file in different directory
-		   zipObj.extractall(Newpath)
-		  
-		
-		# delete downloaded file
-		os.remove(fileName)
+			with ZipFile(fileName, 'r') as zipObj:
+			   # Extract all the contents of zip file in different directory
+			   zipObj.extractall(Newpath)
+			  
+			
+			# delete downloaded file
+			os.remove(fileName)
 
 
 
-		# defining old chrome driver location
-		oldPath = driver_loc + lastVersion
-		oldpathexists = os.path.exists(oldPath)
-		
-		# this deletes the old folder with the older version of chromedriver in it (version 75, once 77 has been downloaded)
-		if(oldpathexists == True):
-			shutil.rmtree(oldPath, ignore_errors=True)
+			# defining old chrome driver location
+			oldPath = driver_loc + lastVersion
+			oldpathexists = os.path.exists(oldPath)
+			
+			# this deletes the old folder with the older version of chromedriver in it (version 75, once 77 has been downloaded)
+			if(oldpathexists == True):
+				shutil.rmtree(oldPath, ignore_errors=True)
+		except exception as downloadPath:
+			# throw error if file doesn't exist in download dir
+			raise "download path is not default --> please update line 80 of ChromeDriverAutomation.py with direct path to fix this issue."
+			driver.quit()
 	else:
 		driver.quit()
 		print("no new version available.")
