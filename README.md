@@ -8,7 +8,7 @@ Set up scheduler to run daily every hour slightly behind google update task mach
 
 Must have a current version of chromedriver in order to set script up.
 
-REQUIRED LIBRARIES: 
+REQUIRED LIBRARIES: or Pip install from requirements.txt --> pip install -r requirements.txt
   pywin32
   selenium
   
@@ -16,13 +16,13 @@ REQUIRED LIBRARIES:
 
 Be sure to update the following variables in the scripts: 
 
-chrome_browser --> location where your normal chromebrowser exists [ChromeVersion.py] -- line 3
-
-# for organizational purposes I set up a folder named ChromeDriver in my python directory.
-driver_loc --> file location where you wish to store all your new versions of chromedriver [ChromeDriverAutomation.py] -- line 10
+Default downloads new versions to download dir --> if you change your default download dir, you will need to update line 80 of ChromeDriverAutomation.py
 
 
-fileName --> your file download path [ChromeDriverAutomation.py] -- line 72
+Easy run command (from python ide) --> from Driver import driver 
+
+
+
 
 If you notice any errors please notify me and I will make the adjustments.
 
