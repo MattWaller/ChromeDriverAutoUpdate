@@ -108,6 +108,8 @@ if (exists == False):
 	else:
 		driver.quit()
 		print("no new version available.")
-
-		
+try:
+	driver.quit()
+except exception as driverNotopen:
+	print("driver not open")		
 exit()
