@@ -1,13 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-#from selenium.webdriver.chrome.options import Options -- OPTIONAL
+from selenium.webdriver.chrome.options import Options #-- OPTIONAL
 #from selenium.common.exceptions import NoSuchElementException -- OPTIONAL
-from ChromeVersion import chrome_browser_version
-
+from ChromeVersion import chromeVersion
+chrome_browser_version = chromeVersion()[0]
 driverName = "\\chromedriver.exe"
 
 # defining base file directory of chrome drivers
-driver_loc = # enter your file path here PATH
+driver_loc = "ChromeDriver\\" #-- ENTER the file path of your exe
+# -- I created a separate folder to house the versions of chromedriver, previous versions will be deleted after downloading the newest version.
+# ie. version 75 will be deleted after 77 has been downloaded.
+
 
 currentPath = driver_loc + chrome_browser_version + driverName 
 
