@@ -6,6 +6,10 @@ Place files in os path that can run python for deployment of automated download 
 
 Set up scheduler to run daily every hour slightly behind google update task machine. 
 
+Built in Driver which can be called by relative path of directory by calling:
+
+from ChromeDriverAutoUpdate.Driver import driver
+
 Must have a current version of chromedriver in order to set script up.
 
 REQUIRED LIBRARIES: or Pip install from requirements.txt --> pip install -r requirements.txt
