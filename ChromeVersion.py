@@ -1,6 +1,8 @@
 def chromeVersion():
-
-	from getFileProperties import getFileProperties
+	if __package__ is None or __package__ == '':
+		from getFileProperties import getFileProperties
+	else:
+		from .getFileProperties import getFileProperties
 
 	chrome_browser = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe' #-- ENTER YOUR Chrome.exe filepath
 

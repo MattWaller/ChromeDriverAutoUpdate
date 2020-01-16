@@ -1,5 +1,7 @@
-from ChromeVersion import chromeVersion
-
+if __package__ is None or __package__ == '':
+    from ChromeVersion import chromeVersion
+else:
+	from .ChromeVersion import chromeVersion
 
 chromeDetails = chromeVersion()
 

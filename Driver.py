@@ -2,7 +2,12 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options #-- OPTIONAL
 #from selenium.common.exceptions import NoSuchElementException -- OPTIONAL
-from ChromeVersion import chromeVersion
+
+if __package__ is None or __package__ == '':
+    from ChromeVersion import chromeVersion
+else:
+	from .ChromeVersion import chromeVersion
+	
 chrome_browser_version = chromeVersion()[0]
 driverName = "\\chromedriver.exe"
 
